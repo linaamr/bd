@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Translations</title>
+</head>
+<body>
+  <h1>Happy Birthday Hassan</h1>
+  <h3>type a language for a surprise</h3>
+  <input type="text" id="languageInput" placeholder="Enter a language">
+  <button id="translateBtn">Translate</button>
+  <p id="result"></p>
+
+  <script>
+    const translations = {
+      "english": "It's all because of you",
+      "french": "c'est tout à cause de toi",
+      "spanish": "tú eres la razón",
+      "italian": "tu sei la ragione",
+      "japanese": "あなたが理由です",
+      "chinese": "你就是原因",
+      "turkish": "sen sebepsin",
+      "hindi": "आप कारण हो",
+      "german": "du bist der Grund",
+      "korean": "너는 이유야",
+      "portuguese": "você é a razão",
+      "russian": "ты причина",
+      "arabic": "أنت السبب",
+      "syrian": "كل الحق عليك"
+    };
+
+    function translate() {
+      let lang = document.getElementById("languageInput").value.toLowerCase().trim();
+      let result = "";
+
+      console.log("User typed:", lang); // debug
+
+      if (lang === "turkish") {
+        let choice = prompt("turkish turkish wala beta3 mbc drama(ekteb ya 'turkish turkish' ya 'beta3 mbc drama' harfeyan");
+        if (choice) {
+          choice = choice.toLowerCase().trim();
+          console.log("User chose:", choice); // debug
+          if (choice === "turkish turkish") {
+            result = `Turkish: ${translations["turkish"]}`;
+          } else if (choice === "beta3 mbc drama") {
+            result = `Syrian: ${translations["syrian"]}`;
+          } else {
+            result = "write one of the options in the question";
+          }
+        } else {
+          result = "no choice entered";
+        }
+      } else if (translations[lang]) {
+        result = `${lang.charAt(0).toUpperCase() + lang.slice(1)}: ${translations[lang]}`;
+      } else {
+        result = "la mafesh el logha de";
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+
+    // attach event
+    document.getElementById("translateBtn").addEventListener("click", translate);
+  </script>
+</body>
+</html>
